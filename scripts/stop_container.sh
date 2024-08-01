@@ -2,6 +2,6 @@
 set -e
 
 # Stop the running container (if any)
-CONTAINER_ID = sudo docker ps | awk 'NR>1 {print $1}'
+CONTAINER_ID=docker ps | awk 'NR>1 {print $1}'
 
-sudo docker stop $CONTAINER_ID
+docker stop $CONTAINER_ID
