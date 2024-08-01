@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
 
-CONTAINER_ID=$(sudo docker ps | awk 'NR>1 {print $1}')
+CONTAINER_ID=$(docker ps -q)
 
 docker stop $CONTAINER_ID
