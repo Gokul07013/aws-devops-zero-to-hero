@@ -1,8 +1,16 @@
 #!/bin/bash
 set -e
 
-CONTAINER_ID=$(docker ps -q)
+# Get the container IDs of all running containers
+CONTAINER_IDS=$(docker ps -q)
 
-echo "Container IDs: $CONTAINER_ID"
+# Debugging output: Print the container IDs to verify
+echo "Container IDs: '$CONTAINER_IDS'"
 
-docker stop $CONTAINER_ID
+# Check if there are any running containers
+if [ -n "$CONTAINER_IDS" ]; then
+  echo "Stopping containers: $CONTAINER_IDS"
+  docker stop $CONTAINER_IDS
+else
+  echo "No running containers found."
+fi
